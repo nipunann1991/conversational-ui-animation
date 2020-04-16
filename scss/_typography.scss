@@ -1,0 +1,44 @@
+/**
+ * Basic typography style for copy text
+ */
+
+@charset "utf-8";
+/*To be removed in the delivery files*/
+
+@font-face {
+    font-family: 'attAleckSans-Medium';
+    src: url('../fonts/ATTAleckSans_W_Md.eot');
+    src: url('../fonts/ATTAleckSans_W_Md.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ATTAleckSans_W_Md.woff2') format('woff2'),
+         url('../fonts/ATTAleckSans_W_Md.woff') format('woff'),
+         url('../fonts/ATTAleckSans_W_Md.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'attAleckSans-Regular';
+    src: url('../fonts/ATTAleckSans_W_Rg.eot');
+    src: url('../fonts/ATTAleckSans_W_Rg.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ATTAleckSans_W_Rg.woff2') format('woff2'),
+         url('../fonts/ATTAleckSans_W_Rg.woff') format('woff'),
+         url('../fonts/ATTAleckSans_W_Rg.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'attAleckSans-Bold';
+    src: url('../fonts/ATTAleckSans_W_Bd.eot');
+    src: url('../fonts/ATTAleckSans_W_Bd.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/ATTAleckSans_W_Bd.woff2') format('woff2'),
+    url('../fonts/ATTAleckSans_W_Bd.woff') format('woff'),
+    url('../fonts/ATTAleckSans_W_Bd.ttf') format('truetype');
+}
+
+
+@font-face {
+    font-family: 'attAleckSans-Light';
+    src: url('../fonts/ATTAleckSans_W_Lt.eot');
+    src: url('../fonts/ATTAleckSans_W_Lt.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/ATTAleckSans_W_Lt.woff2') format('woff2'),
+    url('../fonts/ATTAleckSans_W_Lt.woff') format('woff'), 
+    url('../fonts/ATTAleckSans_W_Lt.ttf') format('truetype'); 
+}
+ 

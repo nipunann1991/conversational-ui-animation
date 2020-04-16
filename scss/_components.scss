@@ -1,0 +1,187 @@
+
+.mobile-screen-wrapper{
+	width: 360px;
+	height: 640px;
+	display: block;
+	background: $white; 
+	margin: auto;
+	margin-top: 50px;
+	border-radius: 20px; 
+	overflow: hidden;
+	position: relative;
+
+	.top-header{
+		height: 5rem;
+		width: 100%;
+		display: block;
+
+	}
+
+	.slick-list{
+ 		overflow: inherit;
+
+ 		.slick-slide{
+ 			@include transition-effect(all, 0.3s, ease);
+ 			outline: 0; 
+
+ 			&.slick-current{
+ 				transform: scale(1.3);
+ 			}
+ 		}
+	}
+
+	ul.users-list{ 
+		width: 100%; 
+		z-index: 100;
+
+		.slick-active.slick-center{
+			&:hover{
+				transform: scale(1.4);
+			}
+		}
+
+		li{
+			width: 3.8rem !important;
+			height: 3.8rem;
+			display: block; 
+			background-color: #ddd; 
+			border-radius: 50%;
+			float: right;
+			cursor: pointer; 
+		    display: flex !important;
+		    align-items: center;
+		    justify-content: center;
+		    font-size: 0;
+		    left: -6px;
+    		position: relative;
+    		background-size: cover;
+ 
+		}
+	}
+
+	.instruction-box{
+		text-align: center;
+		margin-top: 2rem;
+	}
+
+	.message-box-wrapper{
+		background: $white;
+		width: 100%; 
+		min-height: 20rem;
+		margin: 0 1.5rem; 
+		@include calc('width', '100% - 3rem');
+		position: absolute;
+		top: 6rem;
+		border-radius: 1rem;
+		opacity: 0;
+
+		.message-box{
+			width: 100%;
+			min-height: 20rem;
+			@include box-shadow(0px, 7px, 29px, -1px, rgba(0, 0, 0, 0.17)) ;
+			position: relative;
+			z-index: 10001;
+			border-radius: 1rem;
+
+			.user-name{
+				position: absolute;
+			    left: 6.5rem;
+			    top: 3rem;
+			    opacity: 0;
+
+			    h3{
+			    	font-size: 1.6rem;
+			    }
+
+			    p{
+			    	font-size: 1.1rem;
+			    	line-height: 1.1rem;
+    				color: #797979;
+			    }
+
+			}
+		}   
+
+		.message{
+			width: 75%;
+		    height: 8rem; 
+		    position: absolute;
+		    top: 9rem;
+	    	right: 10%; 
+	    	
+
+	    	.text-animation {
+			  position: relative;
+			  color: transparent;
+
+
+			  &::before {
+				  content: '';
+				  position: absolute;
+				  top: 50%;
+				  left: 50%;
+				  //background: rgba(240, 248, 255, 0.5);
+				  width: 0;
+				  height: 1.2em;
+				  -ms-transform: translate(-50%,-55%);
+				  transform: translate(-50%,-55%);
+				}
+
+				&.glow-1{
+					text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #fff318, 0 0 30px #fff318, 0 0 40px #fff318, 0 0 55px #fff318, 0 0 75px #fff318;
+					&::before {
+					  width: 1px;
+					}
+				}
+
+				&.glow-2{
+					&::before {
+					  width: .9em;
+					}
+				}
+
+				&.glow-3{
+					text-shadow: none;
+					color: inherit;
+					&::before {
+					   display: none;
+					}
+				}
+			}
+			  
+
+	    	.message-back, .message-front {
+    			position:absolute;
+			  	width: 100%;
+			  	height: 100%; 
+			  	backface-visibility: hidden;
+			  	-webkit-backface-visibility: hidden;
+			  	-moz-backface-visibility: hidden;
+			  	-ms-backface-visibility: hidden;
+			  	transform: perspective(1000px);
+			  	border-radius: 8px;
+			  	color: #fff;
+			  	padding: 1rem;
+			    font-size: 1.4rem;
+			    line-height: 1.9rem;
+	    	}
+
+	    	.message-front {
+	    		background: rgb(34,73,195);
+		    	background: -webkit-linear-gradient(right, rgba(34,73,195,1) 50%, rgba(45,179,253,1) 100%);
+		    	background: -o-linear-gradient(right, rgba(34,73,195,1) 50%, rgba(45,179,253,1) 100%);
+		    	background: linear-gradient(to right, rgba(34,73,195,1) 50%, rgba(45,179,253,1) 100%)	;
+		    	@include box-shadow(0px, 2px, 22px, 4px, rgba(0, 0, 0, 0.1)) ;
+
+	    	}
+
+	    	.message-back {
+	    		background: #fff;
+	    		@include box-shadow(0px, 2px, 22px, 4px, rgba(0, 0, 0, 0.1)) ;
+	    		//background:url("http://i203.photobucket.com/albums/aa158/Comic1111/ACe.png");
+	    	}
+		}
+	}  
+}
+
+

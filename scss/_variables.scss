@@ -1,0 +1,56 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+
+/// @type List
+
+/// Regular font family
+$default-font: Arial, Helvetica, sans-serif !default; 
+$font-light: 'attAleckSans-Light';
+$font-regular: 'attAleckSans-Regular';
+$font-medium: 'attAleckSans-Medium';
+$font-bold: 'attAleckSans-Bold';
+
+
+/// Main brand colours
+/// @type Color
+$white: #ffffff; 
+
+
+ 
+$default-font-size: 1.5rem; 
+
+
+
+/// Breakpoints
+/// using https://github.com/at-import/breakpoint
+/// Documentation: https://github.com/at-import/breakpoint/wiki
+/// Units without a min/max width are based on MIN-WIDTH
+/* E.g.
+@include breakpoint($medium-2) {
+	width: 30%;
+}
+*/
+  
+
+$small-device: (min-width 320px); 
+$medium-device: (min-width 480px);
+$large-device: (min-width 576px);
+$tablet: (min-width 768px);
+$tablet-medium: (min-width 830px);
+$x-small-desktop: (min-width 1000px);
+$small-desktop: (min-width 1280px);
+$medium-desktop: (min-width 1440px);
+$large-desktop: (min-width 1600px);
+
+
+$device-height-md: "screen and (min-width: 1200px) and (max-height: 700px)";
+
+ 
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$base-url: '../' !default;

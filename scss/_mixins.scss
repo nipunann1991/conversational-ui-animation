@@ -1,0 +1,217 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+/// Make a context based selector a little more friendly
+/// @author Hugo Giraudel
+/// @param {String} $context
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+@mixin clearfix() {
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+
+/// Basic gradients
+/// http://www.paulund.co.uk/sass-mixins-get-started-next-project
+/// @include background-gradient(#000, #FFF, 'vertical')
+@mixin background-gradient($startColor, $endColor, $orientation: '') {
+    background: $startColor;
+
+    @if $orientation == 'vertical' {
+      background: -webkit-linear-gradient(top, $startColor, $endColor);
+      background: linear-gradient(to bottom, $startColor, $endColor);
+    } @else if $orientation == 'horizontal' {
+      background: -webkit-linear-gradient(left, $startColor, $endColor);
+      background: linear-gradient(to right, $startColor, $endColor);
+    } @else {
+      background: -webkit-radial-gradient(center, ellipse cover, $startColor, $endColor);
+      background: radial-gradient(ellipse at center, $startColor, $endColor);
+    }
+}
+
+@mixin flex-cols() {
+	display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+
+@mixin flex-box(){
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+}
+
+
+@mixin flex-box-center(){
+  @include flex-box();
+  align-items: center;
+}
+
+
+@mixin transition-effect($to: all,$duration: 0.5s,$type: ease)   { 
+  -webkit-transition: $to $duration $type; 
+  -moz-transition: $to $duration $type; 
+  transition: $to $duration $type; 
+}
+
+@mixin background-opacity($color, $opacity: 1) {
+    background: $color; /* The Fallback */
+    background: rgba($color, $opacity);
+}
+
+@mixin transition-delay($delay) {
+  -moz-transition-delay: $delay;
+  -o-transition-delay: $delay;
+  -webkit-transition-delay: $delay;
+  transition-delay: $delay;
+}
+
+
+@mixin transition($transition) {
+    -moz-transition: $transition;
+    -o-transition: $transition;
+    -webkit-transition: $transition;
+    transition: $transition;
+}
+
+
+ @mixin rotate($degrees) {
+    -webkit-transform: rotate($degrees);
+    -moz-transform: rotate($degrees);
+    -ms-transform: rotate($degrees);
+    -o-transform: rotate($degrees);
+    transform: rotate($degrees); 
+}
+
+
+@mixin box-shadow($top, $right, $bottom, $left, $color, $inset: false) {
+    @if $inset {
+        -webkit-box-shadow: inset $top $right $bottom $left $color;
+        -moz-box-shadow: inset $top $right $bottom $left $color;
+        box-shadow: inset $top $right $bottom $left $color;
+    }
+    @else {
+        -webkit-box-shadow: $top $right $bottom $left $color;
+        -moz-box-shadow: $top $right $bottom $left $color;
+        box-shadow: $top $right $bottom $left $color;
+    }
+}
+
+
+
+//Mixin for rem + px  sizing
+
+@function parseInt($n) { /* 2 */
+  @return $n / ($n * 0 + 1);
+}
+
+@mixin rem($property, $values) {
+  $px : (); /* 3 */
+  $rem: (); /* 3 */
+
+  @each $value in $values { /* 4 */
+
+    @if $value == 0 or $value == auto { /* 5 */
+      $px : append($px , $value);
+      $rem: append($rem, $value);
+    }
+
+    @else {
+      $unit: unit($value);    /* 6 */
+      $val: parseInt($value); /* 6 */
+
+      @if $unit == "px" {  /* 7 */
+        $px : append($px,  $value);
+        $rem: append($rem, ($val / 10 + rem));
+      }
+
+      @if $unit == "rem" { /* 7 */
+        $px : append($px,  ($val * 10 + px));
+        $rem: append($rem, $value);
+      }
+    }
+  }
+
+  @if $px == $rem {     /* 8 */
+    #{$property}: $px;  /* 9 */
+  } @else {
+    #{$property}: $px;  /* 9 */
+    #{$property}: $rem; /* 9 */
+  }
+}
+
+
+@mixin calc($key, $value) {
+    #{$key}: -webkit-calc(#{$value});
+    #{$key}: -moz-calc(#{$value});
+    #{$key}: calc(#{$value});
+}
+
+
+@mixin ie-hack() {
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        @content;
+    }
+
+    @supports (display:-ms-grid) {
+        @content;
+    }
+}
+
+
+@mixin square-box($width, $bg-color){
+  width: $width;
+  height: $width;
+  background: $bg-color;
+}
+
+
+@mixin ie-hack() {
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        @content;
+    }
+
+    @supports (display:-ms-grid) {
+        @content;
+    }
+}
